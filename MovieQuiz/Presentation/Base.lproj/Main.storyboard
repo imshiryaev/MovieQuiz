@@ -118,6 +118,8 @@
                         <outlet property="counterLabel" destination="cik-Fc-25r" id="Ujb-AF-Yci"/>
                         <outlet property="imageView" destination="YD6-lL-ry1" id="Fg8-QD-fRv"/>
                         <outlet property="textLabel" destination="TlK-Hq-cWE" id="cvF-Kt-HlD"/>
+                        <outletCollection property="buttons" destination="vpS-i8-gUh" collectionClass="NSMutableArray" id="8XY-ti-fTA"/>
+                        <outletCollection property="buttons" destination="P3d-M3-sZ9" collectionClass="NSMutableArray" id="cwc-Oc-HXj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

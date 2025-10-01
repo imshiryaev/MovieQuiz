@@ -6,31 +6,34 @@ final class MovieQuizViewController: UIViewController {
     @IBOutlet private var textLabel: UILabel!
     @IBOutlet private var counterLabel: UILabel!
     
+    @IBOutlet var buttons: [UIButton]!
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.layer.cornerRadius = 20
         show(quiz: convert(model: questions[0]))
     }
     
-    struct QuizQuestion {
+    private struct QuizQuestion {
         let image: String
         let text: String
         let correctAnswer: Bool
     }
     
-    struct ViewModel {
+    private struct ViewModel {
         let image: UIImage
         let question: String
         let questionNumber: String
     }
     
-    struct QuizStepViewModel {
+    private struct QuizStepViewModel {
         let image: UIImage
         let question: String
         let questionNumber: String
     }
     
-    struct QuizResultsViewModel {
+    private struct QuizResultsViewModel {
         let title: String
         let text: String
         let buttonText: String
@@ -155,19 +158,29 @@ final class MovieQuizViewController: UIViewController {
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8
         imageView.layer.cornerRadius = 20
-                        
+        
+        buttons.forEach {
+            $0.isEnabled = false
+            $0.alpha = 0.5
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.imageView.layer.borderColor = UIColor.clear.cgColor
             self.showNextQuestionOrResults()
+            
+            self.buttons.forEach {
+                $0.isEnabled = true
+                $0.alpha = 1
+            }
+
         }
     }
 
     @IBAction private func yesButtonClicked(_ sender: UIButton) {
-        let currentQuestion = questions[currentQuestionIndex]
-        showAnswerResult(isCorrect: currentQuestion.correctAnswer == true)
+        showAnswerResult(isCorrect: questions[currentQuestionIndex].correctAnswer)
     }
     
     @IBAction private func noButtonClicked(_ sender: UIButton) {
-        let currentQuestion = questions[currentQuestionIndex]
-        showAnswerResult(isCorrect: currentQuestion.correctAnswer == false)
+        showAnswerResult(isCorrect: !questions[currentQuestionIndex].correctAnswer)
     }
 }
