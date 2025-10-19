@@ -1,5 +1,6 @@
 import UIKit
-class AlertPresenter {
+
+final class AlertPresenter {
     func show(viewController: UIViewController, model: AlertModel) {
         let alert = UIAlertController(
             title: model.title,

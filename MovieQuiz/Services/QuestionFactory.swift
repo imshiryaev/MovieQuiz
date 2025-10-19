@@ -1,4 +1,4 @@
-class QuestionFactory: QuestionFactoryProtocol {
+final class QuestionFactory: QuestionFactoryProtocol {
     
     weak var delegate: QuestionFactoryDelegate?
     
@@ -59,6 +59,10 @@ class QuestionFactory: QuestionFactoryProtocol {
         )
     ]
     
+    var questionsAmount: Int {
+        questions.count
+    }
+
     func requestNextQuestion() {
         guard let index = (0..<questions.count).randomElement() else {
             delegate?.didReceiveNextQuestion(question: nil)
