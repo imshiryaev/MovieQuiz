@@ -102,19 +102,25 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="GZj-K4-ItX">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
+                            <constraint firstItem="GZj-K4-ItX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7hf-y5-CI0"/>
                             <constraint firstItem="qc7-dJ-4qp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="KmF-YZ-tr6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qc7-dJ-4qp" secondAttribute="trailing" constant="20" id="R6E-R4-j6P"/>
                             <constraint firstItem="qc7-dJ-4qp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Rcn-gt-XBX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qc7-dJ-4qp" secondAttribute="bottom" id="awt-kb-5gw"/>
+                            <constraint firstItem="GZj-K4-ItX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hM3-8e-VTq"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="GZj-K4-ItX" id="DR9-m5-mpC"/>
                         <outlet property="counterLabel" destination="cik-Fc-25r" id="Ujb-AF-Yci"/>
                         <outlet property="imageView" destination="YD6-lL-ry1" id="Fg8-QD-fRv"/>
                         <outlet property="textLabel" destination="TlK-Hq-cWE" id="cvF-Kt-HlD"/>
