@@ -1,5 +1,4 @@
-protocol QuestionFactoryProtocol {
-    var questionsAmount: Int { get }
-    
+protocol QuestionFactoryProtocol {    
+    func loadData()
     func requestNextQuestion()
 }
