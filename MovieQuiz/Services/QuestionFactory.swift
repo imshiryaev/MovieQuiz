@@ -10,10 +10,6 @@ class QuestionFactory: QuestionFactoryProtocol {
             self.delegate = delegate
         }
     
-    func setup(delegate: QuestionFactoryDelegate) {
-        self.delegate = delegate
-    }
-    
     private var movies: [MostPopularMovie] = []
     
     func loadData() {
