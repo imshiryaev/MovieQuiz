@@ -2,7 +2,7 @@ import Foundation
 
 class QuestionFactory: QuestionFactoryProtocol {
     
-    var delegate: QuestionFactoryDelegate?
+    weak var delegate: QuestionFactoryDelegate?
     private let moviesLoader: MoviesLoaderProtocol
     
     init(moviesLoader: MoviesLoaderProtocol, delegate: QuestionFactoryDelegate?) {
