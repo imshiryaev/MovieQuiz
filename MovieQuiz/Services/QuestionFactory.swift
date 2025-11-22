@@ -2,17 +2,13 @@ import Foundation
 
 class QuestionFactory: QuestionFactoryProtocol {
     
-    var delegate: QuestionFactoryDelegate?
+    weak var delegate: QuestionFactoryDelegate?
     private let moviesLoader: MoviesLoaderProtocol
     
     init(moviesLoader: MoviesLoaderProtocol, delegate: QuestionFactoryDelegate?) {
             self.moviesLoader = moviesLoader
             self.delegate = delegate
         }
-    
-    func setup(delegate: QuestionFactoryDelegate) {
-        self.delegate = delegate
-    }
     
     private var movies: [MostPopularMovie] = []
     
@@ -58,7 +54,7 @@ class QuestionFactory: QuestionFactoryProtocol {
             
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                self.delegate?.didReceiveNextQuestion(question: question)
+                self.delegate?.didRecieveNextQuestion(question: question)
             }
         }
     }}
